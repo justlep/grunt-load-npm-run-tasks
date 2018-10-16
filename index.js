@@ -11,12 +11,13 @@ module.exports = function(grunt) {
             taskName = 'npmRun:' + scriptKey;
 
         grunt.registerTask(taskName, function() {
-            grunt.log.writeln('Now executing: ' + commandLine);
+            grunt.log.writeln('Executing: ' + commandLine);
 
             try {
                 execSync(commandLine, {
                     cwd: workingDir,
-                    stdio: [0,1,2]
+                    stdio: [0,1,2],
+                    maxBuffer: 1024 * 1024
                 });
             } catch (err) {
                 grunt.log.error(commandLine + ' failed with status ' + err.status);
@@ -24,7 +25,7 @@ module.exports = function(grunt) {
                 return;
             }
 
-            grunt.log.ok(commandLine + ' finished without error');
+            grunt.log.ok(taskName + ' finished');
         });
     });
 };
