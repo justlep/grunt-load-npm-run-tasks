@@ -1,0 +1,15 @@
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "scripts": {
+    "succeedingScript": "node bin/succeeding.js",
+    "failingScript": "node bin/failing.js"
+  },
+  "description": "tests for grunt-loadNpmRunnableScripts",
+  "main": "Gruntfile.js",
+  "bin": {
+    "test": "failing.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

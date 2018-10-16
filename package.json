@@ -1,0 +1,36 @@
+{
+  "name": "grunt-load-npm-run-tasks",
+  "version": "1.0.0",
+  "description": "A Grunt task loader importing all entries from the scripts section of package.json as npmRun:{script-key} tasks.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justlep/grunt-load-npm-run-tasks.git"
+  },
+  "keywords": [
+    "grunt",
+    "task",
+    "loader",
+    "npm",
+    "run",
+    "script",
+    "package.json",
+    "scripts"
+  ],
+  "author": "Lennart Pegel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/justlep/grunt-load-npm-run-tasks/issues"
+  },
+  "homepage": "https://github.com/justlep/grunt-load-npm-run-tasks#readme",
+  "devDependencies": {
+    "jest": "^23.6.0",
+    "grunt": "^1.0.3"
+  },
+  "peerDependencies": {
+    "grunt": ">=0.4.0"
+  }
+}
