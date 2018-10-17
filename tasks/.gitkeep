@@ -1,0 +1,5 @@
+The sole purpose of this folder is to prevent error messages in certain Grunt configurations,
+
+ `Local Npm module "grunt-load-npm-run-tasks" not found. Is it installed?`
+
+ caused by Grunt's grunt.loadNpmTasks()
