@@ -1,4 +1,4 @@
-# grunt-load-npm-run-tasks [![Build Status](https://travis-ci.org/justlep/grunt-load-npm-run-tasks.svg?branch=master)](https://travis-ci.org/justlep/grunt-load-npm-run-tasks)
+# grunt-load-npm-run-tasks [![Build Status](https://travis-ci.org/justlep/grunt-load-npm-run-tasks.svg?branch=master)](https://travis-ci.org/justlep/grunt-load-npm-run-tasks) [![NPM Version][npm-image]][npm-url]
 A Grunt task loader importing all entries from the `scripts` section of `package.json` as `npmRun:{script-key}` tasks.
 
 ## Installation
@@ -55,3 +55,7 @@ Example `Gruntfile.js`:
 
 ## License
 MIT
+
+
+[npm-image]: https://img.shields.io/npm/v/grunt-load-npm-run-tasks.svg
+[npm-url]: https://npmjs.org/package/grunt-load-npm-run-tasks
