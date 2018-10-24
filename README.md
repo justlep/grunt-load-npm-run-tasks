@@ -53,9 +53,9 @@ Example `Gruntfile.js`:
   };
  ```
 
-## Silent mode (`npm run --silent`) 
+### Silent mode
 
-By default, all `npmRun` Grunt tasks will execute `npm run` with the `---silent` option enabled, 
+By default, all `npmRun:xxx` Grunt tasks will execute `npm run` with the `---silent` option 
 in order to prevent irrelevant npm debugging output like 
 ```
 npm ERR! code ELIFECYCLE
