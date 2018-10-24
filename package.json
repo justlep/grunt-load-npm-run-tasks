@@ -1,6 +1,6 @@
 {
   "name": "grunt-load-npm-run-tasks",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Grunt task loader importing all entries from the scripts section of package.json as npmRun:{script-key} tasks.",
   "main": "index.js",
   "scripts": {

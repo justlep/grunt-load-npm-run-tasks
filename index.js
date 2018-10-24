@@ -1,31 +1,37 @@
-module.exports = function(grunt) {
+module.exports = function(grunt, opts) {
 
     var path = require('path'),
-        execSync = require('child_process').execSync,
+        exec = require('child_process').exec,
         workingDir = process.cwd(),
         pkg = require( path.resolve(workingDir, 'package.json') ),
-        scriptKeys = Object.keys( pkg.scripts || {} );
+        scriptKeys = Object.keys( pkg.scripts || {} ),
+        silent = (opts && typeof opts.silent === 'boolean') ? opts.silent : true;
 
     scriptKeys.forEach(function(scriptKey) {
-        var commandLine = 'npm run ' + scriptKey,
+        var commandLine = (silent ? 'npm run --silent ' : 'npm run ') + scriptKey,
             taskName = 'npmRun:' + scriptKey;
 
         grunt.registerTask(taskName, function() {
             grunt.log.writeln('Executing: ' + commandLine);
 
-            try {
-                execSync(commandLine, {
-                    cwd: workingDir,
-                    stdio: [0,1,2],
-                    maxBuffer: 1024 * 1024
+            var done = this.async(),
+                npmProcess = exec(commandLine, {
+                    maxBuffer: 1024 * 1024,
+                    // encoding: 'utf8',
+                    cwd: workingDir
                 });
-            } catch (err) {
-                grunt.log.error(commandLine + ' failed with status ' + err.status);
-                grunt.fail.fatal();
-                return;
-            }
 
-            grunt.log.ok(taskName + ' finished');
+            npmProcess.stdout.pipe(process.stdout);
+            npmProcess.stderr.pipe(process.stderr);
+
+            npmProcess.on('close', function(code) {
+                if (code !== 0) {
+                    grunt.fail.warn(taskName + ' exited with status ' + code);
+                } else {
+                    grunt.log.ok(taskName + ' finished');
+                }
+                done();
+            });
         });
     });
 };

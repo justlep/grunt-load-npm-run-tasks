@@ -45,11 +45,16 @@ describe('grunt-load-npm-run-tasks', function() {
         expect(output).toBeUndefined();
         expect(typeof error).toBe('object');
 
-        // (!) expected error code here is 3, as that's what Grunt sets for "Task error"
+        // (!) expected error code here is 6, as that's what Grunt sets for "Task warning"
         // -> see https://gruntjs.com/api/exit-codes
-        expect(error.status).toBe(3);
+        expect(error.status).toBe(6);
 
         expect(error.stderr.toString()).toContain(FAILING_TASK_OUTPUT);
+
+        // since we use the `npm --silent` option by default,
+        // the error log should be free of irrelevant npm debugging messages
+        expect(error.stderr.toString()).not.toContain('This is probably not a problem with npm.');
+        expect(error.stderr.toString()).not.toContain('A complete log of this run can be found in:');
     });
 
 });

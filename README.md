@@ -53,6 +53,28 @@ Example `Gruntfile.js`:
   };
  ```
 
+## Silent mode (`npm run --silent`) 
+
+By default, all `npmRun` Grunt tasks will execute `npm run` with the `---silent` option enabled, 
+in order to prevent irrelevant npm debugging output like 
+```
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! my-appliction@1.0.0 test: \`jest test/\`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the my-appliction@1.0.0 test script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+...
+``` 
+
+You can disable silent mode by adding the `{silent: false}` option to the 
+task loader initialization in your `Gruntfile.js`:
+```javascript
+require('grunt-load-npm-run-tasks')(grunt, {silent: false});
+```
+
+
 ## License
 MIT
 
