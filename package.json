@@ -27,8 +27,8 @@
   },
   "homepage": "https://github.com/justlep/grunt-load-npm-run-tasks#readme",
   "devDependencies": {
-    "jest": "^23.6.0",
-    "grunt": "^1.0.3"
+    "grunt": "^1.0.3",
+    "jest": "^27.0.6"
   },
   "peerDependencies": {
     "grunt": ">=0.4.0"
